@@ -21,488 +21,95 @@
       --shadow: 0 4px 24px rgba(10,22,40,0.08);
       --shadow-lg: 0 12px 48px rgba(10,22,40,0.14);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
-      min-height: 100vh;
-      padding: 0;
-    }
-
-    /* HEADER */
-    .site-header {
-      background: var(--navy);
-      padding: 28px 0 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .site-header::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(13,115,119,0.35) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .site-header::after {
-      content: '';
-      position: absolute;
-      bottom: 30px; left: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(20,168,174,0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .header-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px 36px;
-      position: relative;
-      z-index: 1;
-    }
-    .header-badge {
-      display: inline-block;
-      background: rgba(13,115,119,0.35);
-      color: var(--teal-light);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 40px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(20,168,174,0.3);
-    }
-    .header-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 5vw, 42px);
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 14px;
-    }
-    .header-title em {
-      font-style: italic;
-      color: var(--teal-light);
-    }
-    .header-sub {
-      font-size: 15px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .header-wave {
-      display: block;
-      width: 100%;
-      margin-bottom: -2px;
-    }
-
-    /* MAIN LAYOUT */
-    .main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 20px 80px;
-    }
-
-    /* PATIENT INFO */
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 32px;
-      margin-bottom: 24px;
-      border: 1px solid var(--border);
-      animation: slideUp 0.5s ease both;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; padding: 0; }
+    .site-header { background: var(--navy); padding: 28px 0 0; text-align: center; position: relative; overflow: hidden; }
+    .site-header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(13,115,119,0.35) 0%, transparent 70%); pointer-events: none; }
+    .site-header::after { content: ''; position: absolute; bottom: 30px; left: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(20,168,174,0.2) 0%, transparent 70%); pointer-events: none; }
+    .header-inner { max-width: 720px; margin: 0 auto; padding: 0 24px 36px; position: relative; z-index: 1; }
+    .header-badge { display: inline-block; background: rgba(13,115,119,0.35); color: var(--teal-light); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 40px; margin-bottom: 18px; border: 1px solid rgba(20,168,174,0.3); }
+    .header-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 42px); color: var(--white); line-height: 1.1; margin-bottom: 14px; }
+    .header-title em { font-style: italic; color: var(--teal-light); }
+    .header-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 480px; margin: 0 auto; }
+    .header-wave { display: block; width: 100%; margin-bottom: -2px; }
+    .main { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); animation: slideUp 0.5s ease both; }
     .card:nth-child(2) { animation-delay: 0.05s; }
     .card:nth-child(3) { animation-delay: 0.1s; }
     .card:nth-child(4) { animation-delay: 0.15s; }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    .card-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .card-icon.teal { background: rgba(13,115,119,0.1); }
     .card-icon.amber { background: rgba(245,166,35,0.12); }
     .card-icon.indigo { background: rgba(79,70,229,0.1); }
-    .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      color: var(--navy);
-    }
-    .card-desc {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    /* FORM FIELDS */
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    .card-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy); }
+    .card-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .form-grid.three { grid-template-columns: 1fr 1fr 1fr; }
-    .form-grid.full  { grid-template-columns: 1fr; }
-
-    @media (max-width: 560px) {
-      .form-grid, .form-grid.three { grid-template-columns: 1fr; }
-    }
-
+    .form-grid.full { grid-template-columns: 1fr; }
+    @media (max-width: 560px) { .form-grid, .form-grid.three { grid-template-columns: 1fr; } }
     .field { display: flex; flex-direction: column; gap: 6px; }
     .field.span2 { grid-column: span 2; }
     @media (max-width: 560px) { .field.span2 { grid-column: span 1; } }
-
-    label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--slate);
-      display: flex;
-      gap: 4px;
-    }
+    label { font-size: 13px; font-weight: 500; color: var(--slate); display: flex; gap: 4px; }
     label .req { color: var(--danger); }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="email"] {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-      color: var(--navy);
-      background: var(--cream);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    input:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(13,115,119,0.12);
-      background: var(--white);
-    }
+    input[type="text"], input[type="date"], input[type="email"] { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; color: var(--navy); background: var(--cream); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,115,119,0.12); background: var(--white); }
     input.invalid { border-color: var(--danger); }
-
-    /* SCALE HEADER */
-    .scale-header {
-      display: grid;
-      grid-template-columns: 1fr repeat(4, 72px);
-      gap: 8px;
-      align-items: center;
-      padding: 10px 16px;
-      background: var(--navy);
-      border-radius: 8px;
-      margin-bottom: 4px;
-    }
-    .scale-header span {
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      line-height: 1.3;
-    }
+    .scale-header { display: grid; grid-template-columns: 1fr repeat(4, 72px); gap: 8px; align-items: center; padding: 10px 16px; background: var(--navy); border-radius: 8px; margin-bottom: 4px; }
+    .scale-header span { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-align: center; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
     .scale-header span:first-child { text-align: left; color: rgba(255,255,255,0.5); }
-
-    @media (max-width: 600px) {
-      .scale-header { grid-template-columns: 1fr repeat(4, 52px); padding: 8px 10px; }
-    }
-
-    /* QUESTION ROW */
-    .q-row {
-      display: grid;
-      grid-template-columns: 1fr repeat(4, 72px);
-      gap: 8px;
-      align-items: center;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
+    @media (max-width: 600px) { .scale-header { grid-template-columns: 1fr repeat(4, 52px); padding: 8px 10px; } }
+    .q-row { display: grid; grid-template-columns: 1fr repeat(4, 72px); gap: 8px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); transition: background 0.15s; }
     .q-row:last-of-type { border-bottom: none; }
     .q-row:hover { background: rgba(13,115,119,0.03); }
     .q-row.answered { background: rgba(13,115,119,0.04); }
-
-    .q-text {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--navy);
-      padding-right: 8px;
-    }
-    .q-num {
-      display: inline-block;
-      width: 22px; height: 22px;
-      background: var(--teal);
-      color: white;
-      border-radius: 50%;
-      font-size: 11px;
-      font-weight: 600;
-      text-align: center;
-      line-height: 22px;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-
-    .radio-cell {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .q-text { font-size: 14px; line-height: 1.5; color: var(--navy); padding-right: 8px; }
+    .q-num { display: inline-block; width: 22px; height: 22px; background: var(--teal); color: white; border-radius: 50%; font-size: 11px; font-weight: 600; text-align: center; line-height: 22px; margin-right: 8px; flex-shrink: 0; }
+    .radio-cell { display: flex; justify-content: center; align-items: center; }
     .radio-cell input[type="radio"] { display: none; }
-    .radio-cell label {
-      width: 36px; height: 36px;
-      border: 2px solid var(--border);
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      transition: all 0.18s;
-      position: relative;
-    }
-    .radio-cell input[type="radio"]:checked + label {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: white;
-      box-shadow: 0 2px 8px rgba(13,115,119,0.4);
-      transform: scale(1.12);
-    }
-    .radio-cell label:hover {
-      border-color: var(--teal-light);
-      color: var(--teal);
-      transform: scale(1.08);
-    }
-
-    @media (max-width: 600px) {
-      .q-row { grid-template-columns: 1fr repeat(4, 52px); padding: 12px 10px; }
-      .radio-cell label { width: 30px; height: 30px; font-size: 11px; }
-    }
-
-    /* SCORE BAR */
-    .score-section {
-      margin-top: 20px;
-      padding: 16px 16px;
-      background: var(--cream);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .score-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--slate);
-    }
-    .score-display {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .score-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      color: var(--navy);
-      min-width: 40px;
-    }
-    .score-badge {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 40px;
-      transition: all 0.3s;
-    }
+    .radio-cell label { width: 36px; height: 36px; border: 2px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--muted); transition: all 0.18s; position: relative; }
+    .radio-cell input[type="radio"]:checked + label { background: var(--teal); border-color: var(--teal); color: white; box-shadow: 0 2px 8px rgba(13,115,119,0.4); transform: scale(1.12); }
+    .radio-cell label:hover { border-color: var(--teal-light); color: var(--teal); transform: scale(1.08); }
+    @media (max-width: 600px) { .q-row { grid-template-columns: 1fr repeat(4, 52px); padding: 12px 10px; } .radio-cell label { width: 30px; height: 30px; font-size: 11px; } }
+    .score-section { margin-top: 20px; padding: 16px 16px; background: var(--cream); border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .score-label { font-size: 13px; font-weight: 500; color: var(--slate); }
+    .score-display { display: flex; align-items: center; gap: 10px; }
+    .score-number { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--navy); min-width: 40px; }
+    .score-badge { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 40px; transition: all 0.3s; }
     .badge-minimal  { background: #e8f5e9; color: #2e7d32; }
     .badge-mild     { background: #fff8e1; color: #f57f17; }
     .badge-moderate { background: #fff3e0; color: #e65100; }
     .badge-severe   { background: #fce4ec; color: #c62828; }
     .badge-none     { background: var(--border); color: var(--muted); }
-
-    /* DIFFICULTY */
     .difficulty-section { margin-top: 20px; }
-    .difficulty-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-    .difficulty-options {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-    @media (max-width: 500px) {
-      .difficulty-options { grid-template-columns: 1fr 1fr; }
-    }
+    .difficulty-label { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 12px; line-height: 1.5; }
+    .difficulty-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    @media (max-width: 500px) { .difficulty-options { grid-template-columns: 1fr 1fr; } }
     .difficulty-options input[type="radio"] { display: none; }
-    .difficulty-options label {
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 8px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--slate);
-      cursor: pointer;
-      transition: all 0.18s;
-      line-height: 1.4;
-    }
-    .difficulty-options input[type="radio"]:checked + label {
-      border-color: var(--teal);
-      background: rgba(13,115,119,0.08);
-      color: var(--teal);
-      font-weight: 600;
-    }
-    .difficulty-options label:hover {
-      border-color: var(--teal-light);
-      color: var(--teal);
-    }
-
-    /* DIVIDER */
-    .section-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .section-divider::before,
-    .section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* SUBMIT */
-    .submit-area {
-      text-align: center;
-      margin-top: 8px;
-    }
-    .submit-btn {
-      background: var(--teal);
-      color: white;
-      border: none;
-      padding: 16px 48px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s;
-      box-shadow: 0 4px 16px rgba(13,115,119,0.35);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      letter-spacing: 0.01em;
-    }
-    .submit-btn:hover {
-      background: #0b6368;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(13,115,119,0.45);
-    }
+    .difficulty-options label { border: 2px solid var(--border); border-radius: 8px; padding: 10px 8px; text-align: center; font-size: 12px; font-weight: 500; color: var(--slate); cursor: pointer; transition: all 0.18s; line-height: 1.4; }
+    .difficulty-options input[type="radio"]:checked + label { border-color: var(--teal); background: rgba(13,115,119,0.08); color: var(--teal); font-weight: 600; }
+    .difficulty-options label:hover { border-color: var(--teal-light); color: var(--teal); }
+    .submit-area { text-align: center; margin-top: 8px; }
+    .submit-btn { background: var(--teal); color: white; border: none; padding: 16px 48px; font-family: inherit; font-size: 15px; font-weight: 600; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 16px rgba(13,115,119,0.35); display: inline-flex; align-items: center; gap: 8px; letter-spacing: 0.01em; }
+    .submit-btn:hover { background: #0b6368; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,115,119,0.45); }
     .submit-btn:active { transform: translateY(0); }
     .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .submit-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 10px;
-    }
-
-    /* SUCCESS STATE */
-    .success-banner {
-      display: none;
-      background: var(--white);
-      border: 2px solid var(--success);
-      border-radius: var(--radius);
-      padding: 36px 32px;
-      text-align: center;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-      animation: slideUp 0.4s ease both;
-    }
+    .submit-note { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .success-banner { display: none; background: var(--white); border: 2px solid var(--success); border-radius: var(--radius); padding: 36px 32px; text-align: center; box-shadow: var(--shadow); margin-bottom: 24px; animation: slideUp 0.4s ease both; }
     .success-banner.show { display: block; }
-    .success-icon {
-      width: 64px; height: 64px;
-      background: rgba(46,158,107,0.12);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 16px;
-    }
-    .success-banner h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 24px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
+    .success-icon { width: 64px; height: 64px; background: rgba(46,158,107,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .success-banner h3 { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--navy); margin-bottom: 8px; }
     .success-banner p { font-size: 14px; color: var(--slate); }
-
-    /* ERROR */
-    .error-msg {
-      color: var(--danger);
-      font-size: 12px;
-      margin-top: 4px;
-      display: none;
-    }
-
-    .validation-banner {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 13px;
-      color: var(--danger);
-      margin-bottom: 16px;
-      display: none;
-      align-items: center;
-      gap: 8px;
-    }
+    .error-msg { color: var(--danger); font-size: 12px; margin-top: 4px; display: none; }
+    .validation-banner { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: var(--danger); margin-bottom: 16px; display: none; align-items: center; gap: 8px; }
     .validation-banner.show { display: flex; }
-
-    /* FOOTER */
-    .form-footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 11.5px;
-      margin-top: 40px;
-      line-height: 1.7;
-    }
+    .form-footer { text-align: center; color: var(--muted); font-size: 11.5px; margin-top: 40px; line-height: 1.7; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <div class="header-badge">Mental Health Assessment</div>
@@ -520,11 +127,39 @@
     <div class="success-banner" id="successBanner">
       <div class="success-icon">✓</div>
       <h3>Assessment Submitted</h3>
-      <p>Your responses have been sent securely. The provider will review your assessment.</p>
+      <p>Your responses have been sent securely to Dr. Shaikh.</p>
+    </div>
+
+    <!-- NOTIFICATION PROMPT — shown after successful submit -->
+    <div id="notifyPrompt" style="display:none;background:white;border:2px solid #0a1628;border-radius:12px;padding:28px 32px;margin-bottom:24px;animation:slideUp 0.4s ease both;">
+      <p style="font-family:'DM Serif Display',serif;font-size:20px;color:#0a1628;margin-bottom:8px;">⚠️ Important — please notify Dr. Shaikh</p>
+      <p style="font-size:14px;color:#4a5568;line-height:1.7;margin-bottom:20px;"><strong>Dr. Shaikh will not know to review your results unless you send a notification.</strong> Please do one of the following right now:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+        <a href="mailto:contact@drshaikhdo.com?subject=PHQ-9%20%26%20GAD-7%20Assessment%20Completed&body=Hi%20Dr.%20Shaikh%2C%0A%0AI%20have%20completed%20the%20PHQ-9%20%26%20GAD-7%20assessment.%20Please%20review%20when%20available.%0A%0AThank%20you." style="display:flex;align-items:center;gap:12px;background:#0a1628;color:white;padding:14px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email contact@drshaikhdo.com
+        </a>
+        <div style="display:flex;align-items:center;gap:12px;background:#0d7377;color:white;padding:14px 20px;border-radius:8px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Send message via MYIO Patient Portal
+        </div>
+      </div>
+      <div style="border-top:1px solid #dde3ec;padding-top:16px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13.5px;color:#4a5568;line-height:1.55;font-weight:400;">
+          <input type="checkbox" id="notifyConfirm" style="margin-top:2px;width:17px;height:17px;accent-color:#0a1628;flex-shrink:0;">
+          I have notified Dr. Shaikh by email or through the MYIO portal that I have completed this assessment.
+        </label>
+        <div id="notifyError" style="display:none;color:#e05252;font-size:12.5px;margin-top:6px;font-weight:600;">Please confirm you have notified Dr. Shaikh before finishing.</div>
+        <button onclick="confirmNotify()" style="margin-top:14px;width:100%;background:#0a1628;color:white;border:none;padding:13px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;">I've sent my notification — done</button>
+      </div>
+    </div>
+
+    <!-- DONE MESSAGE -->
+    <div id="doneMsg" style="display:none;background:#e8f5ee;border:1px solid #a8d5bb;border-radius:10px;padding:16px 20px;font-size:14px;color:#1a7a4a;font-weight:500;margin-bottom:24px;">
+      ✓ All done. Thank you for completing the assessment and notifying Dr. Shaikh.
     </div>
 
     <form id="assessmentForm" novalidate>
-      <!-- Hidden Web3Forms fields -->
       <input type="hidden" name="access_key" value="938ea7c8-c9e2-4053-ac2d-7a1c4f153159" />
       <input type="hidden" name="subject" value="PHQ-9 & GAD-7 Patient Assessment" />
       <input type="hidden" name="from_name" value="Patient Assessment Form" />
@@ -539,22 +174,24 @@
             <div class="card-desc">All fields are required</div>
           </div>
         </div>
+
+        <!-- PRIVACY NOTICE -->
+        <div style="background:#fdf3ea;border-left:4px solid #8b4513;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#5a2e1a;line-height:1.65;">
+          <strong>Privacy notice:</strong> We ask for your initials only — not your full name — to minimize the personal information transmitted electronically. This is a deliberate privacy measure. Please complete this assessment on a private personal device only; do not use a shared, public, or work computer. By submitting this form, you acknowledge that you are transmitting information electronically and have chosen what information to provide. Your responses are sent securely and confidentially to Dr. Shaikh only.
+        </div>
+
         <div class="form-grid">
           <div class="field span2">
-            <label for="patientName">Full Name <span class="req">*</span></label>
-            <input type="text" id="patientName" name="patient_name" placeholder="First and last name" required />
+            <label for="patientName">Initials only <span class="req">*</span></label>
+            <input type="text" id="patientName" name="patient_name" placeholder="Initials only — e.g. A.S." />
           </div>
           <div class="field">
             <label for="dob">Date of Birth <span class="req">*</span></label>
-            <input type="date" id="dob" name="date_of_birth" required />
+            <input type="date" id="dob" name="date_of_birth" />
           </div>
           <div class="field">
             <label for="assessmentDate">Assessment Date <span class="req">*</span></label>
-            <input type="date" id="assessmentDate" name="assessment_date" required />
-          </div>
-          <div class="field span2">
-            <label for="patientEmail">Patient Email <span class="req">*</span></label>
-            <input type="email" id="patientEmail" name="email" placeholder="patient@email.com" required />
+            <input type="date" id="assessmentDate" name="assessment_date" />
           </div>
         </div>
       </div>
@@ -568,7 +205,6 @@
             <div class="card-desc">Over the last 2 weeks, how often have you been bothered by the following?</div>
           </div>
         </div>
-
         <div class="scale-header">
           <span>Question</span>
           <span>Not at all (0)</span>
@@ -576,10 +212,7 @@
           <span>More than half (2)</span>
           <span>Nearly every day (3)</span>
         </div>
-
         <div id="phq9Questions"></div>
-
-        <!-- Score -->
         <div class="score-section">
           <div>
             <div class="score-label">PHQ-9 Total Score</div>
@@ -592,12 +225,10 @@
         </div>
         <input type="hidden" name="phq9_total_score" id="phq9ScoreInput" />
         <input type="hidden" name="phq9_severity" id="phq9SeverityInput" />
-
-        <!-- Difficulty -->
         <div class="difficulty-section">
           <div class="difficulty-label">If you checked off any problems, how difficult have these made it for you to do your work, take care of things at home, or get along with other people? <span style="color:var(--danger)">*</span></div>
           <div class="difficulty-options" id="phq9Difficulty">
-            <input type="radio" name="phq9_difficulty" id="phq9d0" value="Not difficult at all" required />
+            <input type="radio" name="phq9_difficulty" id="phq9d0" value="Not difficult at all" />
             <label for="phq9d0">Not difficult at all</label>
             <input type="radio" name="phq9_difficulty" id="phq9d1" value="Somewhat difficult" />
             <label for="phq9d1">Somewhat difficult</label>
@@ -618,7 +249,6 @@
             <div class="card-desc">Over the last 2 weeks, how often have you been bothered by the following?</div>
           </div>
         </div>
-
         <div class="scale-header">
           <span>Question</span>
           <span>Not at all (0)</span>
@@ -626,10 +256,7 @@
           <span>Over half the days (2)</span>
           <span>Nearly every day (3)</span>
         </div>
-
         <div id="gad7Questions"></div>
-
-        <!-- Score -->
         <div class="score-section">
           <div>
             <div class="score-label">GAD-7 Total Score</div>
@@ -642,12 +269,10 @@
         </div>
         <input type="hidden" name="gad7_total_score" id="gad7ScoreInput" />
         <input type="hidden" name="gad7_severity" id="gad7SeverityInput" />
-
-        <!-- Difficulty -->
         <div class="difficulty-section">
           <div class="difficulty-label">If you checked off any problems, how difficult have these made it for you to do your work, take care of things at home, or get along with other people? <span style="color:var(--danger)">*</span></div>
           <div class="difficulty-options" id="gad7Difficulty">
-            <input type="radio" name="gad7_difficulty" id="gad7d0" value="Not difficult at all" required />
+            <input type="radio" name="gad7_difficulty" id="gad7d0" value="Not difficult at all" />
             <label for="gad7d0">Not difficult at all</label>
             <input type="radio" name="gad7_difficulty" id="gad7d1" value="Somewhat difficult" />
             <label for="gad7d1">Somewhat difficult</label>
@@ -670,7 +295,7 @@
             <span>Submit Assessment</span>
             <span>→</span>
           </button>
-          <div class="submit-note">Results will be sent securely to your provider.</div>
+          <div class="submit-note">Results are sent securely to contact@drshaikhdo.com — no email client needed</div>
         </div>
       </div>
     </form>
@@ -710,31 +335,23 @@
         const row = document.createElement('div');
         row.className = 'q-row';
         row.id = `${prefix}_row_${i}`;
-
         const qCell = document.createElement('div');
         qCell.className = 'q-text';
         qCell.innerHTML = `<span class="q-num">${i + 1}</span>${q}`;
         row.appendChild(qCell);
-
         for (let v = 0; v <= 3; v++) {
           const cell = document.createElement('div');
           cell.className = 'radio-cell';
-
           const radio = document.createElement('input');
           radio.type = 'radio';
           radio.name = `${prefix}_q${i + 1}`;
           radio.id = `${prefix}_q${i + 1}_v${v}`;
           radio.value = v;
-          radio.required = true;
-          radio.addEventListener('change', () => {
-            row.classList.add('answered');
-            updateScore(prefix);
-          });
-
+          radio.required = false;
+          radio.addEventListener('change', () => { row.classList.add('answered'); updateScore(prefix); });
           const lbl = document.createElement('label');
           lbl.htmlFor = radio.id;
           lbl.textContent = v;
-
           cell.appendChild(radio);
           cell.appendChild(lbl);
           row.appendChild(cell);
@@ -744,8 +361,7 @@
     }
 
     function getScore(prefix, count) {
-      let total = 0;
-      let allAnswered = true;
+      let total = 0, allAnswered = true;
       for (let i = 1; i <= count; i++) {
         const sel = document.querySelector(`input[name="${prefix}_q${i}"]:checked`);
         if (!sel) { allAnswered = false; break; }
@@ -755,11 +371,11 @@
     }
 
     function phq9Severity(s) {
-      if (s <= 4)  return ['Minimal',       'badge-minimal'];
-      if (s <= 9)  return ['Mild',           'badge-mild'];
-      if (s <= 14) return ['Moderate',       'badge-moderate'];
-      if (s <= 19) return ['Mod-Severe',     'badge-severe'];
-      return              ['Severe',         'badge-severe'];
+      if (s <= 4)  return ['Minimal',    'badge-minimal'];
+      if (s <= 9)  return ['Mild',        'badge-mild'];
+      if (s <= 14) return ['Moderate',    'badge-moderate'];
+      if (s <= 19) return ['Mod-Severe',  'badge-severe'];
+      return              ['Severe',      'badge-severe'];
     }
 
     function gad7Severity(s) {
@@ -772,50 +388,47 @@
     function updateScore(prefix) {
       const count = prefix === 'phq9' ? 9 : 7;
       const score = getScore(prefix, count);
-      const scoreEl = document.getElementById(`${prefix}Score`);
-      const badgeEl = document.getElementById(`${prefix}Badge`);
-      const scoreInput = document.getElementById(`${prefix}ScoreInput`);
-      const severityInput = document.getElementById(`${prefix}SeverityInput`);
-
       if (score === null) return;
-
       const [label, cls] = prefix === 'phq9' ? phq9Severity(score) : gad7Severity(score);
-      scoreEl.textContent = score;
-      badgeEl.textContent = label;
-      badgeEl.className = `score-badge ${cls}`;
-      scoreInput.value = score;
-      severityInput.value = label;
+      document.getElementById(`${prefix}Score`).textContent = score;
+      const badge = document.getElementById(`${prefix}Badge`);
+      badge.textContent = label; badge.className = `score-badge ${cls}`;
+      document.getElementById(`${prefix}ScoreInput`).value = score;
+      document.getElementById(`${prefix}SeverityInput`).value = label;
     }
 
-    // Build questions
     buildQuestions(PHQ9, 'phq9', 'phq9Questions');
     buildQuestions(GAD7, 'gad7', 'gad7Questions');
-
-    // Set today's date
     document.getElementById('assessmentDate').value = new Date().toISOString().split('T')[0];
 
-    // FORM SUBMIT
+    function confirmNotify() {
+      const cb = document.getElementById('notifyConfirm');
+      const err = document.getElementById('notifyError');
+      if (!cb.checked) { err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      document.getElementById('notifyPrompt').style.display = 'none';
+      const done = document.getElementById('doneMsg');
+      done.style.display = 'block';
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-
       const banner = document.getElementById('validationBanner');
       const msg = document.getElementById('validationMsg');
       banner.classList.remove('show');
 
-      // Validate patient info
-      const name = document.getElementById('patientName').value.trim();
-      const dob = document.getElementById('dob').value;
-      const date = document.getElementById('assessmentDate').value;
-      const email = document.getElementById('patientEmail').value.trim();
+      const name  = document.getElementById('patientName').value.trim();
+      const dob   = document.getElementById('dob').value;
+      const date  = document.getElementById('assessmentDate').value;
 
-      if (!name || !dob || !date || !email) {
+      if (!name || !dob || !date) {
         msg.textContent = 'Please fill in all patient information fields.';
         banner.classList.add('show');
         document.getElementById('patientName').scrollIntoView({behavior:'smooth', block:'center'});
         return;
       }
 
-      // Validate PHQ-9 all answered
       for (let i = 1; i <= 9; i++) {
         if (!document.querySelector(`input[name="phq9_q${i}"]:checked`)) {
           msg.textContent = `Please answer all PHQ-9 questions (missing question ${i}).`;
@@ -831,7 +444,6 @@
         return;
       }
 
-      // Validate GAD-7 all answered
       for (let i = 1; i <= 7; i++) {
         if (!document.querySelector(`input[name="gad7_q${i}"]:checked`)) {
           msg.textContent = `Please answer all GAD-7 questions (missing question ${i}).`;
@@ -847,19 +459,18 @@
         return;
       }
 
-      // Build message body for email
       const phq9Score = getScore('phq9', 9);
       const gad7Score = getScore('gad7', 7);
       const phq9Sev = phq9Severity(phq9Score)[0];
       const gad7Sev = gad7Severity(gad7Score)[0];
 
-      let phq9Lines = PHQ9.map((q, i) => {
+      const phq9Lines = PHQ9.map((q, i) => {
         const val = document.querySelector(`input[name="phq9_q${i+1}"]:checked`).value;
         const labels = ['Not at all', 'Several days', 'More than half the days', 'Nearly every day'];
         return `  Q${i+1}: ${q}\n       → ${labels[val]} (${val})`;
       }).join('\n');
 
-      let gad7Lines = GAD7.map((q, i) => {
+      const gad7Lines = GAD7.map((q, i) => {
         const val = document.querySelector(`input[name="gad7_q${i+1}"]:checked`).value;
         const labels = ['Not at all', 'Several days', 'Over half the days', 'Nearly every day'];
         return `  Q${i+1}: ${q}\n       → ${labels[val]} (${val})`;
@@ -868,13 +479,11 @@
       const phq9Diff = document.querySelector('input[name="phq9_difficulty"]:checked').value;
       const gad7Diff = document.querySelector('input[name="gad7_difficulty"]:checked').value;
 
-      const messageBody = `
-PATIENT ASSESSMENT SUBMISSION
+      const messageBody = `PATIENT ASSESSMENT SUBMISSION
 ==============================
-Patient Name:    ${name}
-Date of Birth:   ${dob}
-Assessment Date: ${date}
-Email:           ${email}
+Patient Initials: ${name}
+Date of Birth:    ${dob}
+Assessment Date:  ${date}
 
 ──────────────────────────────
 PHQ-9 DEPRESSION SCREENING
@@ -890,36 +499,29 @@ GAD-7 ANXIETY SCREENING
 ${gad7Lines}
 
 Total Score: ${gad7Score}/21 — ${gad7Sev}
-Functional Difficulty: ${gad7Diff}
-      `.trim();
+Functional Difficulty: ${gad7Diff}`.trim();
 
-      // Add message to hidden field
-      let msgField = document.querySelector('input[name="message"]');
-      if (!msgField) {
-        msgField = document.createElement('input');
-        msgField.type = 'hidden';
-        msgField.name = 'message';
-        this.appendChild(msgField);
-      }
-      msgField.value = messageBody;
-
-      // Submit to Web3Forms
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.innerHTML = '<span>Sending…</span>';
 
       try {
-        const formData = new FormData(this);
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        });
+        const form = new FormData();
+        form.append('access_key', '938ea7c8-c9e2-4053-ac2d-7a1c4f153159');
+        form.append('subject',    `PHQ-9 & GAD-7 — ${name} — ${date}`);
+        form.append('from_name',  'PHQ-9 GAD-7 Assessment');
+        form.append('botcheck',   '');
+        form.append('message',    messageBody);
+
+        const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: form });
         const result = await response.json();
 
         if (result.success) {
           document.getElementById('successBanner').classList.add('show');
           this.style.display = 'none';
-          document.getElementById('successBanner').scrollIntoView({behavior:'smooth'});
+          const prompt = document.getElementById('notifyPrompt');
+          prompt.style.display = 'block';
+          prompt.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           throw new Error(result.message || 'Submission failed');
         }
